@@ -5,7 +5,7 @@ class BlackPiece(Piece):
         return self.BLACK
     
     def display(self):
-        return "[r]"
+        return "[b]"
     
     def move(self, new_x, new_y):
         self.x = new_x
@@ -23,12 +23,9 @@ class BlackPiece(Piece):
         return self.y - 2 == new_y and (self.x + 2 == new_x 
                                         or self.x - 2 == new_x)
     
-    def king(self):
-        if self.y == 0:
-            return "[B]"  
-        else:
-            return False
 
+
+#===============================================================================
 if __name__ == "__main__":
     piece = BlackPiece(4, 4)
     print((piece.x, piece.y), piece.display())

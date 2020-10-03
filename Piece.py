@@ -29,10 +29,7 @@ class Piece:
     def is_valid_jump(self, new_x, new_y):
         return False
     
-    def king(self):
-        return False
-    
-
+#===============================================================================
 if __name__ == "__main__":
     piece = Piece(4, 4)
     print((piece.x, piece.y), piece.get_color())

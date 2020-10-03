@@ -23,13 +23,10 @@ class RedPiece(Piece):
         return self.y + 2 == new_y and (self.x + 2 == new_x 
                                         or self.x - 2 == new_x) 
     
-    def king(self):
-        if self.y == 7:
-            return "[R]"
-        else:
-            return False        
+    
+        
 
-
+#===============================================================================
 if __name__ == "__main__":
     piece = RedPiece(4, 4)
     print((piece.x, piece.y), piece.get_color())
@@ -38,3 +35,6 @@ if __name__ == "__main__":
         for col in range(3,6):
             print(f"Move from (4, 4) to ({row}, {col})?", 
                   piece.is_valid_move(row, col))
+            
+    piece = RedPiece(4, 7)
+    print(piece.king())
