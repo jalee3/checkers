@@ -35,7 +35,7 @@ REF's
 (rules for the checkers game)
 
 *****************************************************************************'''
-from time import sleep
+import time
 from Board import *
 
 def main():
@@ -47,9 +47,10 @@ def main():
     checks to see if one of the players has no remaining pieces. Once one player
     has no remaining pieces, the game has ended and the program ends. 
     '''    
-    print("-----Checkers-----\n")
+    print("\n-----Checkers-----\n")
     rules()
- 
+    time.sleep(5) 
+    
     print("Legend:")
     print("r - red piece\t R - red king")
     print("b - black piece\t B - black king\n")    
@@ -64,7 +65,7 @@ def main():
             player = "Black"
             
         print(f"{player}'s turn!") 
-        time.sleep(0.5)
+        time.sleep(1)
         print()
         board.display()
         print()
