@@ -28,8 +28,8 @@ class Piece:
         self.x = x
         self.y = y
         
-        self.RED = "R"
-        self.BLACK = "B"
+        self.RED = "Red"
+        self.BLACK = "Black"
         self.PIECE = "-"
         
     def get_color(self):

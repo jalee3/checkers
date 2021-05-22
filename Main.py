@@ -36,6 +36,8 @@ REF's
 
 *****************************************************************************'''
 import time
+import re
+import random
 from Board import *
 
 def main():
@@ -49,37 +51,49 @@ def main():
     '''    
     print("\n-----Checkers-----\n")
     rules()
-    time.sleep(5) 
+    #time.sleep(5) 
     
     print("Legend:")
     print("r - red piece\t R - red king")
     print("b - black piece\t B - black king\n")    
     
     board = Board()
+    player_color = choose_player()
+    print(f"You control the {player_color} pieces")
     while not board.game_end():
-        
-        player = board.player
-        if player == "R":
-            player = "Red"
-        else:
-            player = "Black"
-            
-        print(f"{player}'s turn!") 
-        time.sleep(1)
+
         print()
         board.display()
         print()
-        
-        piece = input(f"{player} player, choose your piece: ")
-        x, y = check_input(piece)
-        
-        move = input(f"{player} player, choose your move: ")
-        new_x, new_y = check_input(move)
-        print()
-        
+        if board.player == "Black":
+            print("Black's turn!")
+        else:
+            print("Red's turn!")
+        time.sleep(1)
+        if board.player == player_color:
+            while True:
+                try:
+                    piece = input(f"{player_color} player, choose your piece: ")
+                    x, y = check_input(piece)
+                    
+                    move = input(f"{player_color} player, choose your move: ")
+                    new_x, new_y = check_input(move)
+                    print()
+                    break
+                except TypeError:
+                    print("Please enter a proper coordinate.\n")
+        elif board.player != player_color:
+            move = []
+            move = board.choose_move()
+            x, y = move[0]
+            new_x, new_y = move[1]
         board.move(x, y, new_x, new_y)
+
         
-        
+def choose_player():
+        color_list = ["Black", "Red"]
+        return random.choice(color_list)
+
                 
 def check_input(user_input):
     '''
